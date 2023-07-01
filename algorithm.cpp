@@ -3,7 +3,7 @@
 #include <fstream>
 
 Algorithm::Algorithm(QWidget *canvas, QOpenGLWidget *canvas3D, int pause_length)
-    : QObject{}
+    : QObject()
     , _canvas(canvas)
     , _canvas3D(canvas3D)
     , _pause_length(pause_length)
@@ -75,7 +75,7 @@ bool Algorithm::updateCanvasAndBlock()
 
 std::vector<QPoint> Algorithm::generateRandomPoints(int num_points)
 {
-    std::vector<QPoint> randomPoints;
+    std::vector<QPoint> random_points;
 
     int x_max, y_max;
 
@@ -96,9 +96,9 @@ std::vector<QPoint> Algorithm::generateRandomPoints(int num_points)
     srand(static_cast<unsigned>(time(0)));
 
     for(int i = 0; i < num_points; i++)
-        randomPoints.push_back(QPoint(x_min + rand() % x_diff, y_min + rand() % y_diff));
+        random_points.push_back(QPoint(x_min + rand() % x_diff, y_min + rand() % y_diff));
 
-    return randomPoints;
+    return random_points;
 }
 
 std::vector<QPoint> Algorithm::loadData(std::string filename)

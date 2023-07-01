@@ -13,9 +13,11 @@
 class Algorithm : public QObject
     {
     Q_OBJECT
-private:
+protected:
     static int constexpr INVALID_TIMER_ID = -1;
     static int constexpr DRAWING_BORDER = 10;
+
+private:
     void timerEvent(QTimerEvent */* unused */);
 
 public:

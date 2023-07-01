@@ -2,7 +2,7 @@
 #include "algorithm.h"
 
 AnimationThread::AnimationThread(Algorithm *algorithm)
-    : QThread{}
+    : QThread()
     , _algorithm(algorithm)
 {}
 
