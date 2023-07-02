@@ -716,7 +716,7 @@
          <item>
           <widget class="QPushButton" name="random_button">
            <property name="text">
-            <string>Select randomly</string>
+            <string>Generate</string>
            </property>
           </widget>
          </item>

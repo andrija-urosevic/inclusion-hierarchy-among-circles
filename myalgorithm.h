@@ -3,27 +3,8 @@
 
 #include "algorithm.h"
 
+
 #define RAND_RANGE(a, b) (rand() % ((b)- (a) + 1) + (a))
-
-class Circle
-{
-public:
-    static int constexpr MIN_RADIUS = 20;
-    static int constexpr MAX_RADIUS = 200;
-
-public:
-    Circle();
-    Circle(QPoint _point, int _radius);
-
-    void draw(QPainter &painter) const;
-
-    double distanceSquare(const Circle &other) const;
-    double distance(const Circle &other) const;
-    bool intersects(const Circle &other) const;
-
-    QPoint point;
-    int radius;
-};
 
 class MyAlgorithm : public Algorithm
 {

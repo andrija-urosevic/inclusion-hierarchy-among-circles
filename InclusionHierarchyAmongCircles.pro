@@ -15,6 +15,7 @@ SOURCES += \
     animationthread.cpp \
     canvas.cpp \
     canvasopengl.cpp \
+    circle.cpp \
     main.cpp \
     mainwindow.cpp \
     myalgorithm.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     animationthread.h \
     canvas.h \
     canvasopengl.h \
+    circle.h \
     mainwindow.h \
     myalgorithm.h \
     timemeasurementthread.h

@@ -93,37 +93,3 @@ bool MyAlgorithm::intersects(const Circle &circle) const
     });
 }
 
-Circle::Circle()
-    : point(0, 0)
-    , radius(0)
-{}
-
-Circle::Circle(QPoint _point, int _radius)
-    : point(_point)
-    , radius(_radius)
-{}
-
-void Circle::draw(QPainter &painter) const
-{
-    painter.drawPoint(point);
-    painter.drawEllipse(point, radius, radius);
-}
-
-double Circle::distanceSquare(const Circle &other) const
-{
-    return (point.x() - other.point.x()) * (point.x() - other.point.x())
-         + (point.y() - other.point.y()) * (point.y() - other.point.y());
-}
-
-double Circle::distance(const Circle &other) const
-{
-    return std::sqrt(distanceSquare(other));
-}
-
-bool Circle::intersects(const Circle &other) const
-{
-    const auto dist = distance(other);
-
-    return !(dist >= radius + other.radius)
-        && !(dist <= std::abs(radius - other.radius));
-}
