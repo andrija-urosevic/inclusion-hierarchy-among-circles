@@ -45,8 +45,8 @@ MainWindow::MainWindow(QWidget *parent)
     chart->createDefaultAxes();
     chart->setTitle("Poredjenje efikasnosti");
 
-    chart->axes(Qt::Horizontal).constLast()->setRange(0, 1000); // TODO: Manage magic constant
-    chart->axes(Qt::Vertical).constLast()->setRange(0, 1); // TODO: Manage magic constant
+    chart->axes(Qt::Horizontal).constLast()->setRange(0, 1200); // TODO: Manage magic constant
+    chart->axes(Qt::Vertical).constLast()->setRange(0, 0.02); // TODO: Manage magic constant
 
     chart->setBackgroundVisible(false);
     chart->setPlotAreaBackgroundVisible(true);
@@ -177,7 +177,7 @@ void MainWindow::on_compare_button_clicked()
 {
     QString algorithm_type = ui->algorithm_type->currentText();
 
-    _thread = new TimeMeasurementThread(algorithm_type, 3, 100, 1000); // TODO: Remove magic constants
+    _thread = new TimeMeasurementThread(algorithm_type, 10, 10, 1200); // TODO: Remove magic constants
 
     connect(_thread, &TimeMeasurementThread::updateChart, this, &MainWindow::on_line_series_change);
     _thread->start();

@@ -90,10 +90,15 @@ std::vector<QPoint> Algorithm::generateRandomPoints(int num_points)
         y_max = 1000; // TOOD: Remove magic constant
     }
 
+    x_min = -1000;
+    x_max = 1000;
+    y_min = -1000;
+    y_max = 1000;
+
     int x_diff = x_max - x_min;
     int y_diff = y_max - y_min;
 
-    srand(static_cast<unsigned>(time(0)));
+    srand(static_cast<unsigned>(42));
 
     for(int i = 0; i < num_points; i++)
         random_points.push_back(QPoint(x_min + rand() % x_diff, y_min + rand() % y_diff));

@@ -4,6 +4,12 @@
 #include <QPoint>
 #include <QPainter>
 
+class Event;
+class Circle;
+
+using EventPtr = std::shared_ptr<Event>;
+using CirclePtr = std::shared_ptr<Circle>;
+
 class Circle
 {
 public:
@@ -12,25 +18,38 @@ public:
 
 public:
     Circle();
-    Circle(QPoint point, int radius);
+    Circle(QPoint center, int radius);
 
     void draw(QPainter &painter) const;
 
     double distanceSquare(const Circle &other) const;
     double distance(const Circle &other) const;
+    bool includes(const Circle &other) const;
     bool intersects(const Circle &other) const;
 
-    QPoint point() const;
+    void setLeftExtreme(EventPtr left);
+    void setRigthExtreme(EventPtr right);
+
+    QPoint center() const;
     int radius() const;
-    int left_extreme() const;
-    int right_extreme() const;
+
+    EventPtr left_extreme() const;
+    EventPtr right_extreme() const;
+
+    double upper_value() const;
+    double lower_value() const;
+
+    void setInclusion(CirclePtr other);
+    CirclePtr inclusion();
 
 private:
-    QPoint _point;
+    QPoint _center;
     int _radius;
 
-    int _left_extreme;
-    int _right_extreme;
+    CirclePtr _inclusion;
+
+    EventPtr _left_extreme;
+    EventPtr _right_extreme;
 };
 
 #endif // CIRCLE_H
