@@ -136,10 +136,12 @@ void MyAlgorithm::generate_random_circles(int num_circles)
         y_max = 1000; // TOOD: Remove magic constant
     }
 
-    x_max = 10000;
-    y_max = 10000;
-    x_min = -10000;
-    y_min = -10000;
+    if (num_circles > 50) {
+        x_max = 10000;
+        y_max = 10000;
+        x_min = -10000;
+        y_min = -10000;
+    }
 
     int x_diff = x_max - x_min;
     int y_diff = y_max - y_min;

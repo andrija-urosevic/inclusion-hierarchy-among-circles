@@ -1,0 +1,66 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{kls06}{article}{}
+      \name{author}{3}{}{%
+        {{hash=38aaf87cbbc237a1047388573dd6b095}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Deok-Soo},
+           giveni={D\bibinithyphendelim S\bibinitperiod}}}%
+        {{hash=2ff4f65bb67f5ea03ad534af486c47eb}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Byunghoon},
+           giveni={B\bibinitperiod}}}%
+        {{hash=a244887995624fae70176f83b96121ad}{%
+           family={Sugihara},
+           familyi={S\bibinitperiod},
+           given={Kokichi},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Japan Society for Industrial}%
+        {Applied Mathematics}%
+      }
+      \strng{namehash}{00078123ef20ac5f24d447966f863828}
+      \strng{fullhash}{00078123ef20ac5f24d447966f863828}
+      \strng{bibnamehash}{00078123ef20ac5f24d447966f863828}
+      \strng{authorbibnamehash}{00078123ef20ac5f24d447966f863828}
+      \strng{authornamehash}{00078123ef20ac5f24d447966f863828}
+      \strng{authorfullhash}{00078123ef20ac5f24d447966f863828}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Japan Journal of Industrial and Applied Mathematics}
+      \field{number}{1}
+      \field{title}{{A Sweep-Line Algorithm for the Inclusion Hierarchy among Circles}}
+      \field{volume}{23}
+      \field{year}{2006}
+      \field{pages}{127\bibrangedash 138}
+      \range{pages}{12}
+      \keyw{computational geometry,interval search,nesting of circles,plane sweep,red-black}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
