@@ -36,12 +36,10 @@ void MyAlgorithm::run()
        return event1->x() < event2->x();
    });
 
-   std::set<Interval> intervals;
-
    CirclePtr inf_circle = std::make_shared<Circle>(QPoint(0, 0), 1e5);
    auto i0 = Interval(inf_circle);
 
-   intervals.insert(i0);
+   _intervals.insert(i0);
 
    UPDATE_CANVAS_AND_BLOCK();
 
@@ -49,9 +47,9 @@ void MyAlgorithm::run()
         SweepLineX = event->x();
         auto i2 = Interval(event->circle());
         if (event->opening()) {
-            auto i1_it = std::prev(intervals.lower_bound(i2));
+            auto i1_it = std::prev(_intervals.lower_bound(i2));
             auto i1 = *i1_it;
-            intervals.erase(i1_it);
+            _intervals.erase(i1_it);
 
             if (i1.containing_circle() != inf_circle) {
                 event->circle()->setInclusion(i1.containing_circle());
@@ -62,11 +60,11 @@ void MyAlgorithm::run()
             i1.setLowerCircle(event->circle(), false);
             i3.setUpperCircle(event->circle(), false);
 
-            intervals.insert(i1);
-            intervals.insert(i2);
-            intervals.insert(i3);
+            _intervals.insert(i1);
+            _intervals.insert(i2);
+            _intervals.insert(i3);
         } else {
-            auto i2_it = intervals.lower_bound(i2);
+            auto i2_it = _intervals.lower_bound(i2);
             auto i1_it = std::prev(i2_it);
             auto i3_it = std::next(i2_it);
 
@@ -74,11 +72,11 @@ void MyAlgorithm::run()
 
             i1.setUpperCircle(i3_it->upper_circle(), i3_it->upper_side());
 
-            intervals.erase(i1_it);
-            intervals.erase(i3_it);
-            intervals.erase(i2_it);
+            _intervals.erase(i1_it);
+            _intervals.erase(i3_it);
+            _intervals.erase(i2_it);
 
-            intervals.insert(i1);
+            _intervals.insert(i1);
         }
         UPDATE_CANVAS_AND_BLOCK();
     }
@@ -97,6 +95,17 @@ void MyAlgorithm::draw(QPainter &painter) const
 
     for (auto &circle : _circles) {
         circle->draw(painter);
+    }
+
+    pen.setColor(Qt::red);
+    pen.setWidth(15);
+    painter.setPen(pen);
+
+    for (auto &interval : _intervals) {
+        double y1 = interval.upper_value();
+        double y2 = interval.lower_value();
+        painter.drawPoint(QPoint(MyAlgorithm::SweepLineX, y1));
+        painter.drawPoint(QPoint(MyAlgorithm::SweepLineX, y2));
     }
 }
 

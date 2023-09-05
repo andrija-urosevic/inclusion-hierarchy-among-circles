@@ -1,6 +1,7 @@
 #ifndef MYALGORITHM_H
 #define MYALGORITHM_H
 
+#include <set>
 #include "algorithm.h"
 #include "circle.h"
 #include "event.h"
@@ -35,6 +36,7 @@ private:
 
 private:
     std::vector<CirclePtr> _circles;
+    std::set<Interval> _intervals;
 };
 
 #endif // MYALGORITHM_H
